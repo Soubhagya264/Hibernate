@@ -38,12 +38,84 @@ public class MappingMain {
 	        
 //	        q1.setAnswer(answer1);
 	        
+	        
+	        
+//	        ManyToMany  Employee<---->Project
+	        
+	        Employee e1=new Employee();
+	        Employee e2 = new Employee();
+	        Employee e3 =new Employee();
+	        
+	        e1.setEid(1);
+	        e2.setEid(2);
+	        e3.setEid(3);
+	        
+	        e1.setName("Ram");
+	        e2.setName("Ravi");
+	        e3.setName("Rohit");
+	        
+	        
+	        
+	        Project p1  = new Project();
+	        Project p2=new Project();
+	        Project p3 = new Project();
+	        
+	        p1.setPid(101);
+	        p2.setPid(102);
+	        p3.setPid(103);
+	        
+	        p1.setName("Library management sysytem");
+	        p2.setName("Employee Management");
+	        p3.setName("Chatbot");
+	        
+	        List<Employee> list1 = new ArrayList<Employee>();
+	        List<Project> list2 = new ArrayList<Project>();
+	        
+	        
+	        List<Employee> list3 = new ArrayList<Employee>();
+	        List<Project> list4 = new ArrayList<Project>();
+	        
+	        list1.add(e1);
+	        list1.add(e2);
+	        list1.add(e3);
+	        
+	        
+	        list2.add(p1);
+	        list2.add(p2);
+	        list2.add(p3);
+	        
+	        
+	        list3.add(e3);
+	        list3.add(e2);
+	        
+	        list4.add(p1);
+	        list4.add(p3);
+	        
+	        
+	        
+	        e1.setProject(list2);
+	        p2.setEmployee(list1);
+	       
+	        e3.setProject(list4);
+	        p3.setEmployee(list3);
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
 	        Session  session = factory.openSession();
 	        
 	        Transaction tx=session.beginTransaction();
-	        session.save(q1);
-	        session.save(answer1);
-	        session.save(answer2);
+	        session.save(e1);
+	        session.save(e2);
+	        session.save(e3);
+	        session.save(p1);
+	        session.save(p2);
+	        session.save(p3);
 	        tx.commit();
 	        
 	        
